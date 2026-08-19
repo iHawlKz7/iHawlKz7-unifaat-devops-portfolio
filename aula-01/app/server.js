@@ -6,8 +6,8 @@ app.use(express.json());
 
 app.get('/', (req, res) => {
   res.json({
-    servico: 'DevDevOps Portfolio - Sistema de Pedidos',
-    aluno: 'Emar Cristian Silva Teruo Ito',
+    servico: 'DevOps Portfolio API',
+    aluno: 'Emar Cristian silva Teruo Ito',
     ra: '6325192',
     aula: '01 - Fundamentos de Git e Docker',
     status: 'online',
@@ -17,22 +17,12 @@ app.get('/', (req, res) => {
 
 app.get('/health', (req, res) => {
   res.json({ 
-    status: 'healthy',
-    timestamp: new Date().toISOString(),
-    service: 'devops-portfolio-api',
+    status: 'healthy', 
+    uptime: process.uptime(),
     version: '1.0.0'
   });
 });
 
-app.get('/info', (req, res) => {
-  res.json({
-    empresa: 'TechNova',
-    projeto: 'Portfólio DevOps - UniFAAT 2026-2',
-    equipe: 'Platform Engineering',
-    ambiente: process.env.NODE_ENV || 'development'
-  });
-});
-
 app.listen(PORT, () => {
-  console.log(`Servidor rodando na porta ${PORT}`);
+  console.log(`Portfolio API rodando na porta ${PORT}`);
 });
